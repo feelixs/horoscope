@@ -1,13 +1,13 @@
 <?php
 
 $type     = 'mysql';                             // Type of database
-$server   = 'yourIPAddress';                    // Server the database is on
-$db       = 'yourcPanelUsername_horoscope';    // Name of the database
+$server   = '192.185.2.183';                    // Server the database is on
+$db       = 'mikemh_horoscope';    // Name of the database
 $port     = '3306';                           // Port is usually 3306 in Hostgator
 $charset  = 'utf8mb4';                       // UTF-8 encoding using 4 bytes of data per char
 
-$username = 'yourcPanelUsername_user';     // Enter YOUR cPanel username and user here
-$password = 'yourUserPassword';           // Enter YOUR user password here                                     
+$username = 'mikemh_horoscopeAdmin';     // Enter YOUR cPanel username and user here
+$password = '!fRHUq6WhHPW2FV';           // Enter YOUR user password here
 
 
 
