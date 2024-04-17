@@ -14,6 +14,10 @@
 			  Write SQL query to retrieve ALL info on the zodiac sign based on sign parameter from the URL query string
 	 		  Execute the SQL query using the pdo function and fetch the result
 	 */
+	 $this_sign = $_GET['sign'];
+	 $statement = $pdo->query("SELECT * FROM zodiac WHERE name= '$this_sign'");
+	 $data = $statement->fetch();
+	 $sign = $data['name'];
 
 
 	
@@ -51,26 +55,26 @@
 	    <div class="horoscope-info">
 	        <div class="horoscope-header">
 	        	<!-- Display image of zodiac with its name as alt text -->
-	            <img src="<?= '' ?>" alt="<?= '' ?>">
+	            <img src="<?= $data['imgSrc'] ?>" alt="<?= $sign ?>">
 
 	            <!-- Display name of zodiac sign -->
-	            <h2><?= '' ?></h2>
+	            <h2><?= $sign ?></h2>
 
 	            <!-- Display birthday range of zodiac sign -->
-	            <p><?= '' ?></p>
+	            <p><?= $data['birthday'] ?></p>
 	        </div>
 
 	        <div class="horoscope-ratings">
 	            <h3>Today's Ratings:</h3>
 	            <ul>
 	            	<!-- Call the function in the 'starRating.php' file to generate a star rating based on the mood rating  -->
-	                <li>Mood: <?= '' ?></li>
+	                <li>Mood: <?= generateStarRating($details['moodRating']) ?></li>
 
 	                <!-- Call the function in the 'starRating.php' file to generate a star rating based on the success rating  -->
-	                <li>Success: <?= '' ?></li>
+	                <li>Success: <?= generateStarRating($details['successRating']) ?></li>
 
 	                <!-- Call the function in the 'starRating.php' file to generate a star rating based on the love rating  -->
-	                <li>Love: <?= '' ?></li>
+	                <li>Love: <?= generateStarRating($details['loveRating']) ?></li>
 	            </ul>
 	        </div>
 	    </div>
@@ -80,7 +84,7 @@
 	    <div class="horoscope-description">
 	        <h3>Today's Horoscope:</h3>
 	        <!-- Display the horoscope description -->
-	        <p><?= '' ?></p>
+	        <p><?= $details['description'] ?></p>
 	    </div>
 	</div>			
 </div>
